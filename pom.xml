@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <version>1.0</version>
     <properties>
-        <lucene.version>8.5.2</lucene.version>
+        <lucene.version>8.6.2</lucene.version>
     </properties>
     <name>solr-vn-analyzer</name>
     <url>http://maven.apache.org</url>
@@ -14,7 +14,7 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.7</version>
+            <version>2.6</version>
         </dependency>
         <dependency>
             <groupId>VnCoreNLP</groupId>
