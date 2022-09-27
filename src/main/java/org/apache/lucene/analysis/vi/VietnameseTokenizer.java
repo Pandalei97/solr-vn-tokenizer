@@ -67,18 +67,18 @@ public class VietnameseTokenizer extends Tokenizer {
         typeAtt.setType(TypeAttribute.DEFAULT_TYPE);
         Location location = indexOf(preprocessedText, form, offset);
         if (location == null) {
-            throw new IllegalArgumentException("Token `" + form + "` should appear in the text: " + inputText);
+            throw new IllegalArgumentException("Token `" + form + "` should appear in the text: " + inputText + "; Processed text : " + preprocessedText + "; Offset: "+offset);
         }
         String term = inputText.substring(location.start, location.end).replaceAll("\\s+", " ");
         termAtt.copyBuffer(term.toCharArray(), 0, term.length());
-        offsetAtt.setOffset(correctOffset(location.start), offset = correctOffset(location.end));
+        offsetAtt.setOffset(location.start, offset = location.end);
         return true;
     }
 
     @Override
     public final void end() throws IOException {
         super.end();
-        final int finalOffset = correctOffset(offset);
+        final int finalOffset = offset;
         offsetAtt.setOffset(finalOffset, finalOffset);
     }
 
